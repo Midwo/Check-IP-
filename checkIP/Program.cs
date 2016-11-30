@@ -24,7 +24,7 @@ namespace checkIP
                 }
                 else
                 {
-                    Console.WriteLine("  Adres IP - nr:" + ++licznik + ": " + AdresIP.ToString());
+                    Console.WriteLine("  Adres IP - nr. " + ++licznik + ". " + AdresIP.ToString());
 
                 }
                 Console.ReadLine();
