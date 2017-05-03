@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
+using checkIP.Libs;
 
 namespace checkIP
 {
@@ -11,10 +12,13 @@ namespace checkIP
     {
         static void Main(string[] args)
         {
+            TextWriter x = new TextWriter();
             string NazwaHosta = Dns.GetHostName();
             IPHostEntry AdresyIP = Dns.GetHostEntry(NazwaHosta);
-            Console.WriteLine("Nazwa komputera: " + NazwaHosta);
+            x.PcName("Nazwa komputera: " + NazwaHosta);
             int licznik = 0;
+           
+
             foreach (IPAddress AdresIP in AdresyIP.AddressList)
             {
                 if (AdresIP.ToString() == "127.0.0.1")
@@ -24,7 +28,9 @@ namespace checkIP
                 }
                 else
                 {
-                    Console.WriteLine("  Adres IP - nr. " + ++licznik + ". " + AdresIP.ToString());
+
+                    x.AdresText("  Adres IP - nr. " + ++licznik + ". " + AdresIP.ToString());
+ 
 
                 }
                 Console.ReadLine();
